@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Indtast navn og få din data</h1>
+<input id="name" placeholder="Name">
+<button id="submit-btn">Submit</button>
+<p id="body"></p>
+
+<script>
+    document.getElementById("submit-btn").onclick = getName;
+    async function getName() {
+        document.getElementById("body").innerText = ""
+        const name = document.getElementById("name").value;
+        var URL = "https://week8exercise.azurewebsites.net/name-info?name=" + name
+        const fetchName = await fetch(URL).then(res => res.json());
+        var data =  `
+        <ul>
+            <li>name: ${fetchName.name}</li>
+            <li>Gender: ${fetchName.gender}</li>
+            <li>Gender propability: ${fetchName.genderPropability}</li>
+            <li>Age: ${fetchName.age}</li>
+            <li>Age count: ${fetchName.ageCount}</li>
+            <li>Country: ${fetchName.country}</li>
+            <li>Country propability: ${fetchName.countryPropability}</li>
+        `
+
+        document.getElementById("body").innerHTML = data
+    }
+</script>
+</body>
+</html>
