@@ -5,10 +5,16 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Indtast navn og få din data</h1>
-<input id="name" placeholder="Name">
-<button id="submit-btn">Submit</button>
-<p id="body"></p>
+<div style="display: flex; flex-direction: row">
+    <div>
+        <h1>Indtast navn og få din data</h1>
+        <input id="name" placeholder="Name">
+        <button id="submit-btn">Submit</button>
+        <p id="body"></p>
+    </div>
+    <img style="width: 100%" src="https://media.istockphoto.com/id/598091988/vector/business-people-avatars.jpg?s=612x612&w=0&k=20&c=dononBDxAQbr1qQ3XIsALIXjum2SdjoZOMKXtSOJ0MM=" alt="">
+
+</div>
 
 <script>
     document.getElementById("submit-btn").onclick = getName;
