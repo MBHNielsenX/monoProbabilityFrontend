@@ -2,18 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Probability</title>
 </head>
 <body>
-<div style="display: flex; flex-direction: row">
-    <div>
-        <h1>Indtast navn og få din data</h1>
-        <input id="name" placeholder="Name">
-        <button id="submit-btn">Submit</button>
-        <p id="body"></p>
-    </div>
-    <img style="width: 100%" src="https://media.istockphoto.com/id/598091988/vector/business-people-avatars.jpg?s=612x612&w=0&k=20&c=dononBDxAQbr1qQ3XIsALIXjum2SdjoZOMKXtSOJ0MM=" alt="">
-
+<div>
+    <h1>Indtast et navn</h1>
+    <input id="name" placeholder="Name">
+    <button id="submit-btn">Submit</button>
+    <p id="body"></p>
 </div>
 
 <script>
@@ -21,7 +17,7 @@
     async function getName() {
         document.getElementById("body").innerText = ""
         const name = document.getElementById("name").value;
-        var URL = "https://week8exercise.azurewebsites.net/name-info?name=" + name
+        var URL = "https://monoprobability.azurewebsites.net/probability?name=" + name
         const fetchName = await fetch(URL).then(res => res.json());
         var data =  `
         <ul>
@@ -33,7 +29,6 @@
             <li>Country: ${fetchName.country}</li>
             <li>Country propability: ${fetchName.countryPropability}</li>
         `
-
         document.getElementById("body").innerHTML = data
     }
 </script>
